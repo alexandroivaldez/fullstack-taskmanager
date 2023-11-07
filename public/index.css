@@ -1,3 +1,45 @@
-body {
-    background-color: thistle;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    border: 1px solid red;
+}
+
+.task-container {
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.task-card {
+    border: 1px solid green;
+    width: 50%;
+    background-color: rgb(219, 220, 222);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-options {
+    display: flex;
+    gap: 10px;
+}
+
+form {
+    border: 1px solid orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 8px;
 }
