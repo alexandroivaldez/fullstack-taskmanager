@@ -5,11 +5,21 @@ const taskDesc = document.getElementById('task-desc');
 
 const addTask = (e) => {
     e.preventDefault();
+
+
     let newTask = {
         name: taskName.value,
-        date: taskName.value,
+        date: taskDate.value,
         description: taskDesc.value
     }
+
+    axios.post('http://localhost:4000/api/addTask', newTask)
+    .then((res) => {
+        console.log(res.data);
+    })
+    .catch((err) => {
+        console.error(err);
+    })
 }
 
 form.addEventListener('submit', addTask);
