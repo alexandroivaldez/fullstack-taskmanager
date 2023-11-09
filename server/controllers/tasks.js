@@ -26,5 +26,15 @@ module.exports = {
         .then((dbRes) => {
             res.status(200).send(dbRes[0]);
         })
+    },
+    deleteTask: (req, res) => {
+        let {id} = req.params;
+        db.query(`
+            DELETE FROM tasks WHERE id = ${id};
+            SELECT * FROM tasks;
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
     }
 }

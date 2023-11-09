@@ -1,5 +1,17 @@
 const list = document.getElementById('task-container');
 
+const deleteTask = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:4000/api/deleteTask/${id}`)
+    .then((res) => {
+        list.innerHTML = "";
+        res.data.forEach(createCard);
+    })
+    .catch((err) => {
+        console.error(err);
+    })
+}
+
 const createCard = (task) => {
     let card = document.createElement('div');
     card.classList += 'task-card';
@@ -12,6 +24,7 @@ const createCard = (task) => {
 
     let trash = document.createElement('h3');
     trash.textContent = "🗑️";
+    trash.addEventListener('click', () => deleteTask(task.id));
     let check = document.createElement('h3');
     check.textContent = "✅";
 
